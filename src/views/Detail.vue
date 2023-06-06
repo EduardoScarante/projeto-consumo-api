@@ -1,4 +1,19 @@
 <script>
+export default{
+    data(){
+        return{
+            a: this.$route.params.name
+        }
+    }
+}
+
+</script>
+
+<template>
+   {{ a }}
+</template>
+
+<!-- <script>
 export default {
   data() {
     return {
@@ -45,3 +60,4 @@ export default {
     <img :src="imageUrl" alt="Google Image" key="API_KEY" />
   </div>
 </template>
+ -->
