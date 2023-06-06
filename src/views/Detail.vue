@@ -51,7 +51,7 @@ export default {
                             "condição": data.days[x].conditions,
                             "descrição": data.days[x].description,
                             "precipitação": data.days[x].precip,
-                            "icon": data.days[x].icon
+                            "icon": data.days[x].icon.replaceAll("-", "")
 
                         })
                         console.log(data.days[x])
@@ -70,30 +70,44 @@ export default {
 </script>
 
 <template>
-    <h3 v-show="loading">ALGO BONITINHO PARA APARECER QUANDO ESTÁ CARREGANDO</h3>
+    <!-- <h3 v-show="loading">ALGO BONITINHO PARA APARECER QUANDO ESTÁ CARREGANDO</h3> -->
 
 
-    <div class="car">
-        <div v-for="x of imageUrl">
-            <img :src="x" alt="Google Image" key="API_KEY" />
+    <main>
+        <div class="car">
+            <div v-for="x of imageUrl">
+                <img :src="x" alt="Google Image" key="API_KEY" />
+            </div>
         </div>
-    </div>
 
-    <div v-for="x of clima">
-        <climaBox :clima="x"/>
-    </div>
+        <div v-for="x of clima" class="climaBox">
+            <climaBox :clima="x" />
+        </div>
+    </main>
 </template>
 
 <style scoped>
+main{
+    display: flex;
+    margin: auto;
+    width: 80vw;
+    flex-wrap: wrap;
+}
+
+.climaBox{
+    margin: auto;
+}
+
 img {
     height: 250px;
     margin: 10px;
 }
-
 .car {
     display: flex;
     margin: auto;
     width: 75vw;
+    height: 150px;
+    background-color: azure;
     overflow-y: auto;
 }
 </style>

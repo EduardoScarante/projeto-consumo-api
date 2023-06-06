@@ -17,7 +17,7 @@ export default {
     </main>
 </template>
 
-<style>
+<style scoped>
 main {
     width: 100px;
     margin-bottom: 10px;
