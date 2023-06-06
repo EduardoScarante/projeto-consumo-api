@@ -19,10 +19,13 @@ export default {
 
 <style scoped>
 main {
-    width: 100px;
+    width: 500px;
+    height: 100px;
     margin-bottom: 10px;
-    background-color: lightcyan;
     border-radius: 5px;
-    padding: 10px;
+    margin: 10px;
+
+    background-color: rgb(236, 236, 236);
+    box-shadow: 1px 1px 3px lightgray;
 }
 </style>

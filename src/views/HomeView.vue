@@ -1,7 +1,5 @@
 <script>
 import search from "../components/search.vue";
-import lottie from "../lottie/Fundo.json"
-import lottie2 from "../lottie/Fundo2.json"
 
 export default {
   components: {
@@ -12,8 +10,6 @@ export default {
       cidades: [],
       filteredCidades: [],
       filtro: "",
-      lottie: lottie,
-      lottie2: lottie2,
     };
   },
   methods: {
@@ -54,30 +50,46 @@ export default {
 </script>
 
 <template>
-  <input type="text" v-model="filtro" @keyup="handleFilter" />
+  <main>
 
-  <div v-for="x of filteredCidades">
-    <search @click="handleClickDetail" :filteredCidades="x" />
-  </div>
+    <h2>Cidades ;)</h2>
 
-  <lottie-player
-    :src="lottie2"
-    background="transparent"
-    speed="1"
-    style="width: 100vw; height: auto"
-    loop
-    autoplay
-  ></lottie-player>
+    <input type="text" v-model="filtro" @keyup="handleFilter" />
+
+    <br>
+
+    <div class="boxFilter">
+      <div v-for="x of filteredCidades">
+        <search @click="handleClickDetail" :filteredCidades="x" />
+      </div>
+    </div>
+
+
+  </main>
 </template>
 
 <style scoped>
-
-lottie-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-
+main {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
+input {
+  height: 20px;
+  width: 650px;
+  border: none;
+  padding: 20px;
+  background-color: rgb(238, 238, 238);
+
+  border-radius: 5px;
+}
+
+.boxFilter{
+  height: 500px;
+  overflow: auto;
+  padding-top: 30px;
+}
 </style>
