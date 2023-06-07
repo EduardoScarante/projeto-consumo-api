@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="container">
     <div id="imagens">
       <img id="logo" src="../logos/iconBranco.png" />
       <img id="text" src="../logos/textoHome.png" />
@@ -77,7 +77,7 @@ export default {
 </template>
 
 <style scoped>
-main {
+.container {
   flex-direction: column;
   display: flex;
   justify-content: center;
@@ -122,10 +122,8 @@ input:focus {
 }
 
 .boxFilter {
-  height: 500px;
+  height: 300px;
   overflow: auto;
-
-  background-color: red;
 }
 
 ::placeholder {
