@@ -51,20 +51,22 @@ export default {
 
 <template>
   <main>
-
     <h2>Cidades ;)</h2>
 
-    <input type="text" v-model="filtro" @keyup="handleFilter" />
+    <input
+      type="text"
+      v-model="filtro"
+      @keyup="handleFilter"
+      placeholder="Busque por uma cidade..."
+    />
 
-    <br>
+    <br />
 
     <div class="boxFilter">
       <div v-for="x of filteredCidades">
         <search @click="handleClickDetail" :filteredCidades="x" />
       </div>
     </div>
-
-
   </main>
 </template>
 
@@ -79,7 +81,8 @@ main {
 
 input {
   height: 20px;
-  width: 650px;
+  width: 37%;
+  min-width: 400px;
   border: none;
   padding: 20px;
   background-color: rgb(238, 238, 238);
@@ -87,9 +90,20 @@ input {
   border-radius: 5px;
 }
 
-.boxFilter{
+input:focus {
+  box-shadow: 0 0 0 1px rgba(214, 214, 214, 0.562);
+  outline: 0;
+}
+
+.boxFilter {
   height: 500px;
   overflow: auto;
   padding-top: 30px;
+}
+
+::placeholder {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
 }
 </style>
