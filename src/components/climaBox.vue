@@ -64,9 +64,7 @@ export default {
 
 <style scoped>
 main {
-    background-color: rgb(240, 240, 240);
-    box-shadow: 8px 8px 24px #c5c5c5,
-        -8px -8px 24px #fbfbfb;
+    box-shadow: 8px 8px 24px #c5c5c5, -8px -8px 24px #fbfbfb;
     width: 350px;
     height: 500px;
 
@@ -78,7 +76,7 @@ main {
 
     z-index: 100;
 
-    margin: 10px;
+    margin: 5px;
 
     color: white;
 }
