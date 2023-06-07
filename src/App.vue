@@ -91,6 +91,7 @@ export default {
 
 
 <style scoped>
+
 nav {
   width: 95vw;
   height: 50px;

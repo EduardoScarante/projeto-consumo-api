@@ -12,9 +12,8 @@ export default {
 <template>
   <main class="content" :id="filteredCidades.nome">
 
-    <div id="cidade">{{ filteredCidades.nome }}</div>
-
-    <div id="estado">
+    <div class="cidade" :id="filteredCidades.nome">{{ filteredCidades.nome }}</div>
+    <div class="estado" :id="filteredCidades.nome">
       {{ filteredCidades.estado }} / {{ filteredCidades.UF }}
     </div>
 
@@ -40,7 +39,7 @@ export default {
   box-shadow: 1px 1px 3px lightgray;
 }
 
-#estado{
+.estado{
  font-size: 1ch;
 }
 
