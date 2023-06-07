@@ -22,12 +22,16 @@ export default {
             partlycloudynight,
             clearday,
             clearnight,
-            icon: ''
+
+            showInfo: false,
         }
     },
     methods: {
-        getImg(icon){
+        getImg(icon) {
             return this[icon]
+        },
+        showinfos() {
+            this.showInfo = !this.showInfo
         }
     },
     props: {
@@ -37,56 +41,91 @@ export default {
 </script>
 
 <template>
-    <main>
-        <h1> {{ clima.data }} </h1>
+    <main @click="showinfos">
+
+        <h1 class="clima"> {{ clima.data }} </h1>
+
         <div class="temp">
-            <h3> Media: {{ clima.tempmedia }} </h3>
-            <h3> Min: {{ clima.tempmin }} </h3>
-            <h3> Max: {{ clima.tempmax }} </h3>
+            <h3> Minima: {{ clima.tempmin }} </h3>
+            <h3> Máxima: {{ clima.tempmax }} </h3>
         </div>
-        <div class="temp">
-            <h3> nascer-do-sol: {{ clima.nascerdosol }} </h3>
-            <h3> por-do-sol: {{ clima.pordosol }} </h3>
+
+        <div class="info" v-show="showInfo">
+            <h3> <b>{{ clima.descrição }}</b> </h3>
+            <h3> Nascer do Sol: {{ clima.nascerdosol }} </h3>
+            <h3> Pôr do Sol: {{ clima.pordosol }} </h3>
+            <h3> Humidade: {{ clima.humidade }} </h3>
+            <h3> Precipitação: {{ clima.precipitação }} </h3>
         </div>
-        <div class="temp">
-            <h3> humidade: {{ clima.humidade }} </h3>
-            <h3> precipitação: {{ clima.precipitação }} </h3>
-        </div>
-        <h3> descrição: {{ clima.descrição }} </h3>
 
         <img :src="getImg(clima.icon)" alt="">
-
     </main>
-
-
-    icone: {{ clima.icon }}
 </template>
 
 <style scoped>
 main {
     background-color: rgb(240, 240, 240);
-    box-shadow: 1px 1px 2px lightgray;
-    width: 250px;
-    height: 200px;
-
-    margin: 10px;
-
-    font-size: 8px;
+    box-shadow: 8px 8px 24px #c5c5c5,
+        -8px -8px 24px #fbfbfb;
+    width: 350px;
+    height: 500px;
 
     display: flex;
     align-items: center;
     flex-direction: column;
 
+    position: relative;
+
+    z-index: 100;
+
+    margin: 10px;
+
+    color: white;
 }
 
 img {
-    width: 50px;
-    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
+
+    z-index: -1;
 }
 
 .temp {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: end;
+    text-align: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+.info {
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+
+    font-weight: 100;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.clima{
+    background-color: rgb(114, 114, 114, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.info>* {
+    font-weight: 400;
 }
 </style>
