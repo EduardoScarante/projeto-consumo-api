@@ -3,12 +3,15 @@ import { RouterLink, RouterView } from 'vue-router'
 import lottie1 from "./lottie/love-dog.json"
 import lottie2 from "./lottie/love-sheep.json"
 
+import icon from "./icons/loveapi.png"
+
 
 export default {
   data() {
     return {
       lottie1,
       lottie2,
+      icon,
 
       AnuncioApiLove: false,
       nome1: '',
@@ -56,7 +59,7 @@ export default {
                               </lottie-player> -->
 
     <div class="anuncio" @click="openLoveApi">
-      love
+      <img :src="icon" alt="">
     </div>
 
     <div v-show="AnuncioApiLove" class="modalApiLove">
@@ -95,6 +98,11 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+img{
+  height: 100px;
+  transform: rotateY(180deg);
 }
 
 /* lottie-player {
