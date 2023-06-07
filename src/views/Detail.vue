@@ -10,6 +10,7 @@ export default {
         return {
             search: this.$route.params.name,
             loading: false,
+            imgContent: false,
             imageUrl: [],
             clima: [],
             climaCarosel: [],
@@ -59,7 +60,7 @@ export default {
                         })
                     }
 
-                    for (let x = 0; x < 3; x++) {
+                    for (let x = 0; x < 4; x++) {
                         this.climaCarosel.push({
                             "index": x,
                             "data": data.days[x].datetime.split("-").reverse().join("."),
@@ -83,38 +84,50 @@ export default {
         indexMenos() {
             if (this.index == 0) return
             this.index--
-            this.climaCarosel = this.clima.slice(this.index, this.index + 3)
+            this.climaCarosel = this.clima.slice(this.index, this.index + 4)
         },
         indexMais() {
-            if (this.index == 7) return
+            if (this.index == 6) return
             this.index++
-            this.climaCarosel = this.clima.slice(this.index, this.index + 3)
+            this.climaCarosel = this.clima.slice(this.index, this.index + 4)
+        },
+        showImg() {
+            console.log("aaaa");
+            this.imgContent = !this.imgContent
+
         }
     },
     mounted() {
-        //this.getImages(this.search);
         this.getClima(this.search);
+        //this.getImages(this.search);
+
     },
 };
 </script>
 
 <template>
-    <main>
-        <div class="caroselImg">
-            <div v-for="x of imageUrl">
-                <img :src="x" alt="Google Image" />
-            </div>
-        </div>
+    <main class="content">
 
         <div class="climaBox">
             <div @click="indexMenos" class="arrow">
-                &lt
+                <div class="centerArrow">&lt</div>
             </div>
             <div v-for="x of climaCarosel">
                 <climaBox :clima="x" />
             </div>
             <div @click="indexMais" class="arrow">
-                >
+                <div class="centerArrow">></div>
+            </div>
+        </div>
+
+        <p @click="showImg">Veja fotos :)</p>
+
+        <div class="caroselImg" v-show="imgContent">
+
+            <p class="cloneBtn" @click="showImg">X</p>
+
+            <div v-for="x of imageUrl">
+                <img :src="x" alt="Google Image" />
             </div>
         </div>
 
@@ -122,26 +135,37 @@ export default {
 </template>
 
 <style scoped>
-main {
+.content {
     display: flex;
+    height: 80vh;
     flex-direction: column;
-}
-
-img {
-    height: 250px;
-    margin: 10px;
+    align-items: center;
 }
 
 .caroselImg {
+    position: fixed;
+    overflow: auto;
+
+    top: 0;
+    left: 0;
+
+    z-index: 150;
+    width: 100%;
+    height: 100%;
+
     display: flex;
-    margin: auto;
-    width: 90vw;
-    height: 300px;
-    background-color: white;
-    box-shadow: 8px 8px 24px #c5c5c5,
-        -8px -8px 24px #fbfbfb;
-    overflow-y: auto;
-    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+.caroselImg img {
+    height: 350px;
+    border-radius: 5px;
+    width: auto;
+    margin: 10px;
 }
 
 
@@ -153,34 +177,59 @@ img {
     justify-content: center;
     margin: auto;
 
-    width: 80vw;
+    width: 90vw;
 
 }
 
+.cloneBtn {
+    color: white;
+    background-color: rgb(255, 255, 255, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    margin: 20px;
+    top: 0;
+    right: 0;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-weight: 700;
+
+    transition: 0.4s;
+}
+
+.cloneBtn:hover {
+    opacity: 0.7;
+}
 
 .arrow {
-    margin: 10px;
-
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
+    margin: 10px;
     width: 50px;
+}
+
+.centerArrow {
+    box-shadow: 8px 8px 24px #c5c5c5, -8px -8px 24px #fbfbfb;
+    background: rgb(255, 255, 255, 0.2);
 
     border-radius: 10px;
-    background: rgb(255, 255, 255, 0.2);
+    padding: 10px;
+    
     font-weight: 700;
     font-size: 30px;
-    box-shadow: 8px 8px 24px #c5c5c5,
-        -8px -8px 24px #fbfbfb;
-
     transition: 0.2s;
 
     user-select: none;
 }
 
-.arrow:hover {
+.centerArrow:hover {
     background-color: rgb(245, 245, 245);
 }
 </style>
