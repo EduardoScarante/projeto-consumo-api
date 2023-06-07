@@ -46,8 +46,8 @@ export default {
         <h1 class="clima"> {{ clima.data }} </h1>
 
         <div class="temp">
-            <h3> Minima: {{ clima.tempmin }} </h3>
-            <h3> Máxima: {{ clima.tempmax }} </h3>
+            <h3 class="clima"> Minima: {{ clima.tempmin }} </h3>
+            <h3 class="clima"> Máxima: {{ clima.tempmax }} </h3>
         </div>
 
         <div class="info" v-show="showInfo">
@@ -64,7 +64,7 @@ export default {
 
 <style scoped>
 main {
-    box-shadow: 8px 8px 24px #c5c5c5, -8px -8px 24px #fbfbfb;
+    box-shadow: 2px 2px 1px #c5c5c5, -8px -8px 24px #fbfbfb;
     width: 350px;
     height: 500px;
 
