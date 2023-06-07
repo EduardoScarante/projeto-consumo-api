@@ -120,6 +120,9 @@ nav a.router-link-exact-active:hover {
   bottom: 0;
   right: 0;
   padding: 20px;
+
+  cursor: pointer;
+
 }
 
 .modalApiLove {
