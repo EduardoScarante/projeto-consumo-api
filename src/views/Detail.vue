@@ -24,7 +24,7 @@ export default {
             // Obtem foto do Google usando a API de pesquisa de imagens
             const googleSearchApiKey = "AIzaSyBLq5cUwYO31kXPjCxhaELx_tNXv_TI-ec"; // Chave de API do Google JSON  com pesquisas de até 10 000 requisições por dia se for somente web é ilimitado
             const customSearchEngineId = "163bf32740a0e4962"; // ID de pesquisa personalizado
-            const googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${googleSearchApiKey}&cx=${customSearchEngineId}&q=${url}&searchType=image`;
+            const googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${googleSearchApiKey}&cx=${customSearchEngineId}&q=cidade%20de%20${url}&searchType=image`;
 
             fetch(googleSearchUrl)
                 .then((res) => res.json())
@@ -33,6 +33,7 @@ export default {
                         this.imageUrl.push(data.items[x].link)
                     }
                 }).catch(err => {
+                    this.imageUrl = "Acabou o dinheiro dos devs, tente novamente amanhã!"
                     console.log("error: ", err)
                 })
             this.loading = false
@@ -45,7 +46,7 @@ export default {
                     for (let x = 0; x < 10; x++) {
                         this.clima.push({
                             "index": x,
-                            "data": data.days[x].datetime.split("-").reverse().join("/"),
+                            "data": data.days[x].datetime.split("-").reverse().join("-"),
                             "tempmin": data.days[x].tempmin + ("°"),
                             "tempmax": data.days[x].tempmax + ("°"),
                             "tempmedia": data.days[x].temp + ("°"),
@@ -92,14 +93,13 @@ export default {
             this.climaCarosel = this.clima.slice(this.index, this.index + 4)
         },
         showImg() {
-            console.log("aaaa");
+            this.getImages(this.search);
             this.imgContent = !this.imgContent
 
         }
     },
     mounted() {
         this.getClima(this.search);
-        //this.getImages(this.search);
 
     },
 };
@@ -107,6 +107,8 @@ export default {
 
 <template>
     <main class="content">
+
+        <p class="cidade">{{ search }}</p>
 
         <div class="climaBox">
             <div @click="indexMenos" class="arrow">
@@ -120,14 +122,15 @@ export default {
             </div>
         </div>
 
-        <p @click="showImg">Veja fotos :)</p>
+        <p class="fotos" @click="showImg">Veja algumas fotos do local!</p>
 
         <div class="caroselImg" v-show="imgContent">
 
-            <p class="cloneBtn" @click="showImg">X</p>
+            <p class="cloneBtn" @click="imgContent = false">X</p>
 
             <div v-for="x of imageUrl">
-                <img :src="x" alt="Google Image" />
+                <img :src="x" alt="" />
+                {{ erro }}
             </div>
         </div>
 
@@ -142,6 +145,22 @@ export default {
     align-items: center;
 }
 
+.cidade{
+    font-weight: 700;
+    font-size: 2rem;
+    color: rgb(51, 51, 51);
+}
+
+.fotos{
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    
+}
+
+/* IMAGENS */
 .caroselImg {
     position: fixed;
     overflow: auto;
@@ -159,9 +178,7 @@ export default {
 
     background-color: rgba(0, 0, 0, 0.8);
 
-}
-
-.caroselImg img {
+}.caroselImg img {
     height: 350px;
     border-radius: 5px;
     width: auto;
@@ -178,9 +195,7 @@ export default {
     margin: auto;
 
     width: 90vw;
-
 }
-
 .cloneBtn {
     color: white;
     background-color: rgb(255, 255, 255, 0.5);
@@ -201,11 +216,9 @@ export default {
 
     transition: 0.4s;
 }
-
 .cloneBtn:hover {
     opacity: 0.7;
 }
-
 .arrow {
     display: flex;
     align-items: center;
@@ -214,7 +227,6 @@ export default {
     margin: 10px;
     width: 50px;
 }
-
 .centerArrow {
     box-shadow: 8px 8px 24px #c5c5c5, -8px -8px 24px #fbfbfb;
     background: rgb(255, 255, 255, 0.2);
