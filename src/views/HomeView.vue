@@ -10,6 +10,7 @@ export default {
       cidades: [],
       filteredCidades: [],
       filtro: "",
+      mostarbox: false,
     };
   },
   methods: {
@@ -32,9 +33,11 @@ export default {
     handleFilter() {
       if (this.filtro.length <= 2) {
         this.filteredCidades = [];
+        this.mostarbox = false
         return;
       }
 
+      this.mostarbox = true
       this.filteredCidades = this.cidades.filter((e) => {
         return e.nome.toLowerCase().includes(this.filtro.toLowerCase());
       });
@@ -51,18 +54,21 @@ export default {
 
 <template>
   <main>
-    <h2>Cidades ;)</h2>
+    <div id="imagens">
+      <img id="logo" src="../logos/iconBranco.png" />
+      <img id="text" src="../logos/textoHome.png" />
+    </div>
 
     <input
       type="text"
       v-model="filtro"
       @keyup="handleFilter"
-      placeholder="Busque por uma cidade..."
+      placeholder="Busque por uma cidade do Brasil..."
     />
 
     <br />
 
-    <div class="boxFilter">
+    <div class="boxFilter" v-show="mostarbox">
       <div v-for="x of filteredCidades">
         <search @click="handleClickDetail" :filteredCidades="x" />
       </div>
@@ -77,6 +83,26 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  background: linear-gradient(0deg, rgb(1, 55, 136) 8%, rgba(0,45,114,1) 100%);
+
+  height: 94vh;
+}
+
+#imagens {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+img#logo {
+  height: 250px;
+}
+
+img#text {
+  height: 90%;
 }
 
 input {
@@ -98,7 +124,8 @@ input:focus {
 .boxFilter {
   height: 500px;
   overflow: auto;
-  padding-top: 30px;
+
+  background-color: red;
 }
 
 ::placeholder {

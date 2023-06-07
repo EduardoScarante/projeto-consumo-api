@@ -11,14 +11,14 @@ export default {
 
 
 <template>
-    <main :id="filteredCidades.nome">
+    <main class="content" :id="filteredCidades.nome">
         {{ filteredCidades.nome }}
         {{ filteredCidades.estado }} / {{ filteredCidades.UF }}
     </main>
 </template>
 
 <style scoped>
-main {
+.content {
     width: 500px;
     height: 100px;
     margin-bottom: 10px;
