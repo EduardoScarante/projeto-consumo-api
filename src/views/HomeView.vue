@@ -79,7 +79,7 @@ export default {
   align-items: center;
   text-align: center;
 
-  background: linear-gradient(0deg, rgb(1, 55, 136) 8%, rgba(0, 45, 114, 1) 100%);
+  background:linear-gradient(0deg, rgba(0,64,163,1) 0%, rgba(0,45,114,1) 100%);
 
   height: 94vh;
 }
@@ -117,8 +117,9 @@ input:focus {
 }
 
 .boxFilter {
-  height: 300px;
+  height: 28vh;
   overflow: auto;
+  cursor: pointer;
 }
 
 ::placeholder {
@@ -135,7 +136,7 @@ input:focus {
 }
 
 .boxFilter::-webkit-scrollbar-track {
-  background: #232E33;
+  background: #88888800;
   border-radius: 6px;
 }
 

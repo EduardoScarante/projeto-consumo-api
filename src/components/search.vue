@@ -1,35 +1,47 @@
 <script>
 export default {
-    props: {
-        filteredCidades: Object,
-    },
-    data() {
-        return {}
-    }
-}
+  props: {
+    filteredCidades: Object,
+  },
+  data() {
+    return {};
+  },
+};
 </script>
 
-
 <template>
-    <main class="content" :id="filteredCidades.nome">
-        {{ filteredCidades.nome }} <br>
-        {{ filteredCidades.estado }} / {{ filteredCidades.UF }}
-    </main>
+  <main class="content" :id="filteredCidades.nome">
+
+    <div id="cidade">{{ filteredCidades.nome }}</div>
+
+    <div id="estado">
+      {{ filteredCidades.estado }} / {{ filteredCidades.UF }}
+    </div>
+
+  </main>
 </template>
 
 <style scoped>
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width: 500px;
-    height: 100px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    background-color: rgb(236, 236, 236) !important; 
-    box-shadow: 1px 1px 3px lightgray;
+  width: 25vw;
+  min-width: 350px;
+  height: 55px;
+  border-radius: 5px;
+  margin: 10px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  background-color:rgb(238, 238, 238) !important;
+  box-shadow: 1px 1px 3px lightgray;
 }
+
+#estado{
+ font-size: 1ch;
+}
+
 </style>
