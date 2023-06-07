@@ -1,6 +1,5 @@
 <script>
-
-import climaBox from '../components/climaBox.vue'
+import climaBox from "../components/climaBox.vue";
 
 
 export default {
@@ -63,7 +62,7 @@ export default {
                     for (let x = 0; x < 3; x++) {
                         this.climaCarosel.push({
                             "index": x,
-                            "data": data.days[x].datetime.split("-").reverse().join("/"),
+                            "data": data.days[x].datetime.split("-").reverse().join("."),
                             "tempmin": data.days[x].tempmin + ("°"),
                             "tempmax": data.days[x].tempmax + ("°"),
                             "tempmedia": data.days[x].temp + ("°"),
@@ -100,9 +99,6 @@ export default {
 </script>
 
 <template>
-    <!-- <h3 v-show="loading">ALGO BONITINHO PARA APARECER QUANDO ESTÁ CARREGANDO</h3> -->
-
-
     <main>
         <div class="caroselImg">
             <div v-for="x of imageUrl">
@@ -180,7 +176,7 @@ img {
         -8px -8px 24px #fbfbfb;
 
     transition: 0.2s;
-     
+
     user-select: none;
 }
 

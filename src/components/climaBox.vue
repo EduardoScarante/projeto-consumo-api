@@ -43,7 +43,7 @@ export default {
 <template>
     <main @click="showinfos">
 
-        <h1> {{ clima.data }} </h1>
+        <h1 class="clima"> {{ clima.data }} </h1>
 
         <div class="temp">
             <h3> Minima: {{ clima.tempmin }} </h3>
@@ -117,6 +117,12 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.clima{
+    background-color: rgb(114, 114, 114, 0.5);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .info>* {
