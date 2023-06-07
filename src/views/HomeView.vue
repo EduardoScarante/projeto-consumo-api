@@ -59,12 +59,7 @@ export default {
       <img id="text" src="../logos/textoHome.png" />
     </div>
 
-    <input
-      type="text"
-      v-model="filtro"
-      @keyup="handleFilter"
-      placeholder="Busque por uma cidade do Brasil..."
-    />
+    <input type="text" v-model="filtro" @keyup="handleFilter" placeholder="Busque por uma cidade do Brasil..." />
 
     <br />
 
@@ -84,7 +79,7 @@ export default {
   align-items: center;
   text-align: center;
 
-  background: linear-gradient(0deg, rgb(1, 55, 136) 8%, rgba(0,45,114,1) 100%);
+  background: linear-gradient(0deg, rgb(1, 55, 136) 8%, rgba(0, 45, 114, 1) 100%);
 
   height: 94vh;
 }
@@ -130,5 +125,23 @@ input:focus {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   filter: gray;
+}
+
+
+/* NAV BAR PERSONALIZADA */
+
+.boxFilter::-webkit-scrollbar {
+  width: 4px
+}
+
+.boxFilter::-webkit-scrollbar-track {
+  background: #232E33;
+  border-radius: 6px;
+}
+
+.boxFilter::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 6px;
+
 }
 </style>
