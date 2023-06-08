@@ -56,7 +56,7 @@ export default {
   <main class="container">
     <div id="imagens">
       <img id="logo" src="../logos/AttemptICONazul.png" />
-      <img id="text" src="../logos/AttemptTEXTO.png" />
+      <img id="text" src="../logos/AttemptTEXTO(2).png" />
     </div>
 
     <input
@@ -86,8 +86,8 @@ export default {
 
   background: linear-gradient(
     360deg,
-    rgba(0, 4, 87, 1) 0%,
-    rgb(1, 71, 177) 50%
+    rgba(0, 45, 114, 1) 0%,
+    rgba(0, 85, 217, 1) 100%
   );
 
   height: 94vh;
@@ -99,16 +99,16 @@ export default {
   align-items: center;
   text-align: center;
 
-  height: 500px;
+  height: 520px;
 }
 
 img#logo {
-  width: 20%;
+  width: 18%;
   min-width: 200px;
 }
 
 img#text {
-  width: 40%;
+  width: 42%;
   min-width: 400px;
 }
 
