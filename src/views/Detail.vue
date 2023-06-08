@@ -1,15 +1,16 @@
 <script>
 import climaBox from "../components/climaBox.vue";
-
+import loading from "../components/loadingModal.vue"
 
 export default {
     components: {
         climaBox,
+        loading,
     },
     data() {
         return {
             search: this.$route.params.name,
-            loading: false,
+            loading: true,
             imgContent: false,
             imageUrl: [],
             clima: [],
@@ -21,7 +22,7 @@ export default {
         getImages(url) {
             this.loading = true;
 
-            if(this.imageUrl != '') return
+            if (this.imageUrl != '') return
 
             // Obtem foto do Google usando a API de pesquisa de imagens
             const googleSearchApiKey = "AIzaSyBLq5cUwYO31kXPjCxhaELx_tNXv_TI-ec"; // Chave de API do Google JSON  com pesquisas de até 10 000 requisições por dia se for somente web é ilimitado
@@ -83,6 +84,7 @@ export default {
                 }).catch(err => {
                     console.log("erro: ", err)
                 })
+
         },
         indexMenos() {
             if (this.index == 0) return
@@ -102,7 +104,7 @@ export default {
     },
     mounted() {
         this.getClima(this.search);
-
+        this.loading = false
     },
 };
 </script>
@@ -135,7 +137,7 @@ export default {
                 {{ erro }}
             </div>
         </div>
-
+        <loading v-if="loading"></loading>
     </main>
 </template>
 
@@ -147,19 +149,19 @@ export default {
     align-items: center;
 }
 
-.cidade{
+.cidade {
     font-weight: 700;
     font-size: 2rem;
     color: rgb(51, 51, 51);
 }
 
-.fotos{
+.fotos {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
     color: white;
     font-weight: 700;
-    
+
 }
 
 /* IMAGENS */
@@ -180,7 +182,9 @@ export default {
 
     background-color: rgba(0, 0, 0, 0.8);
 
-}.caroselImg img {
+}
+
+.caroselImg img {
     height: 350px;
     border-radius: 5px;
     width: auto;
@@ -198,6 +202,7 @@ export default {
 
     width: 90vw;
 }
+
 .cloneBtn {
     color: white;
     background-color: rgb(255, 255, 255, 0.5);
@@ -218,24 +223,27 @@ export default {
 
     transition: 0.4s;
 }
+
 .cloneBtn:hover {
     opacity: 0.7;
 }
+
 .arrow {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     margin: 10px;
     width: 50px;
 }
+
 .centerArrow {
     box-shadow: 8px 8px 24px #c5c5c5, -8px -8px 24px #fbfbfb;
     background: rgb(255, 255, 255, 0.2);
 
     border-radius: 10px;
     padding: 10px;
-    
+
     font-weight: 700;
     font-size: 30px;
     transition: 0.2s;
