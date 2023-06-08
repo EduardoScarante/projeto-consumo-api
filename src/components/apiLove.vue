@@ -3,38 +3,49 @@
 import lottie1 from "@/lottie/love-dog.json";
 import lottie2 from "@/lottie/love-sheep.json";
 
+import loading from "./loadingModal.vue"
+
 export default {
-  data() {
-    return {
-      lottie1,
-      lottie2,
-
-      nome1: "",
-      nome2: "",
-      resApi: "",
-    };
-  },
-  methods: {
-    async calculateLoveApi() {
-      const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${this.nome1}&fname=${this.nome2}`;
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "311ed1e4a9msh8fb52b3af94b7cep178b83jsnaaaec4ea33b7",
-          "X-RapidAPI-Host": "love-calculator.p.rapidapi.com",
-        },
-      };
-
-      const response = await fetch(url, options);
-      const result = await response.json();
-      this.resApi = result;
+    components: {
+        loading
     },
-    closeModal(){
-        this.$emit('closeModal')
-        return
-    }
-  },
+    data() {
+        return {
+            lottie1,
+            lottie2,
+
+            nome1: "",
+            nome2: "",
+            resApi: "",
+
+            loading: false,
+        };
+    },
+    methods: {
+        async calculateLoveApi() {
+            this.loading = true
+
+            const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${this.nome1}&fname=${this.nome2}`;
+            const options = {
+                method: "GET",
+                headers: {
+                    "X-RapidAPI-Key":
+                        "311ed1e4a9msh8fb52b3af94b7cep178b83jsnaaaec4ea33b7",
+                    "X-RapidAPI-Host": "love-calculator.p.rapidapi.com",
+                },
+            };
+
+            const response = await fetch(url, options);
+            const result = await response.json();
+            this.resApi = result;
+
+            this.loading = false
+        },
+        closeModal() {
+            this.$emit('closeModal')
+            return
+        }
+    },
 };
 
 </script>
@@ -57,21 +68,23 @@ export default {
                 </div>
             </div>
 
-           <!--  <lottie-player class="lt1" :src="lottie1" speed="1" style="width: 400px; height: auto" loop
-                autoplay></lottie-player>
-            <lottie-player class="lt2" :src="lottie2" speed="1" style="width: 400px; height: auto" loop
-                autoplay></lottie-player> -->
+            <!--  <lottie-player class="lt1" :src="lottie1" speed="1" style="width: 400px; height: auto" loop
+                        autoplay></lottie-player>
+                    <lottie-player class="lt2" :src="lottie2" speed="1" style="width: 400px; height: auto" loop
+                        autoplay></lottie-player> -->
         </div>
+
+        <loading v-if="loading"></loading>
     </div>
 </template>
 
-<style>
+<style scoped>
 .modalApiLove {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: rgb(0, 0, 0, 0.3);
 
     display: flex;
@@ -102,35 +115,36 @@ export default {
 }
 
 input {
-  padding: 10px;
-  border: none;
-  width: 300px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
-  background-color: rgb(255, 198, 198);
+    background-color: rgb(255, 198, 198);
 }
 
 button {
-  background-color: red;
-  padding: 20px;
-  border-radius: 10px;
-  border: none;
-  width: 100px;
+    background-color: red;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
 }
 
 button:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 .lt1 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
+
 .lt2 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 </style>
