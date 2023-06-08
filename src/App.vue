@@ -30,6 +30,13 @@ export default {
       <RouterLink to="/">
         <span class="material-symbols-outlined"> home </span>
       </RouterLink>
+      <RouterLink to="/info">
+        <span class="material-symbols-outlined"> info </span>
+      </RouterLink>
+      <RouterLink to="/creators">
+        <span class="material-symbols-outlined"> logo_dev </span>
+      </RouterLink>
+      
     </nav>
 
     <RouterView />
