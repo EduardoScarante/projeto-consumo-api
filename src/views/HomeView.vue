@@ -33,11 +33,11 @@ export default {
     handleFilter() {
       if (this.filtro.length <= 2) {
         this.filteredCidades = [];
-        this.mostarbox = false
+        this.mostarbox = false;
         return;
       }
 
-      this.mostarbox = true
+      this.mostarbox = true;
       this.filteredCidades = this.cidades.filter((e) => {
         return e.nome.toLowerCase().includes(this.filtro.toLowerCase());
       });
@@ -55,11 +55,16 @@ export default {
 <template>
   <main class="container">
     <div id="imagens">
-      <img id="logo" src="../logos/iconBranco.png" />
-      <img id="text" src="../logos/textoHome.png" />
+      <img id="logo" src="../logos/AttemptICONazul.png" />
+      <img id="text" src="../logos/AttemptTEXTO.png" />
     </div>
 
-    <input type="text" v-model="filtro" @keyup="handleFilter" placeholder="Busque por uma cidade do Brasil..." />
+    <input
+      type="text"
+      v-model="filtro"
+      @keyup="handleFilter"
+      placeholder="Busque por uma cidade do Brasil..."
+    />
 
     <br />
 
@@ -79,25 +84,32 @@ export default {
   align-items: center;
   text-align: center;
 
-  background:linear-gradient(0deg, rgba(0,64,163,1) 0%, rgba(0,45,114,1) 100%);
+  background: linear-gradient(
+    360deg,
+    rgba(0, 4, 87, 1) 0%,
+    rgb(1, 71, 177) 50%
+  );
 
   height: 94vh;
 }
 
 #imagens {
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
+
+  height: 500px;
 }
 
 img#logo {
-  height: 250px;
+  width: 20%;
+  min-width: 200px;
 }
 
 img#text {
-  height: 90%;
+  width: 40%;
+  min-width: 400px;
 }
 
 input {
@@ -117,22 +129,15 @@ input:focus {
 }
 
 .boxFilter {
-  height: 28vh;
+  height: 25vh;
   overflow: auto;
   cursor: pointer;
 }
 
-::placeholder {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter: gray;
-}
-
-
 /* NAV BAR PERSONALIZADA */
 
 .boxFilter::-webkit-scrollbar {
-  width: 4px
+  width: 4px;
 }
 
 .boxFilter::-webkit-scrollbar-track {
@@ -143,6 +148,5 @@ input:focus {
 .boxFilter::-webkit-scrollbar-thumb {
   background: #ffffff;
   border-radius: 6px;
-
 }
 </style>

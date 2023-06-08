@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 import lottie1 from "./lottie/love-dog.json";
 import lottie2 from "./lottie/love-sheep.json";
 
-import icon from "./icons/loveapi.png";
+import icon from "./icons/love-message.png";
 
 export default {
   data() {
@@ -106,8 +106,8 @@ nav {
 }
 
 img {
-  height: 100px;
-  transform: rotateY(180deg);
+  height: 60px;
+  transform: rotateY(180deg); 
 }
 
 /* lottie-player {
