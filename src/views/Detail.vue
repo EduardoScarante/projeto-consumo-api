@@ -21,6 +21,8 @@ export default {
         getImages(url) {
             this.loading = true;
 
+            if(this.imageUrl != '') return
+
             // Obtem foto do Google usando a API de pesquisa de imagens
             const googleSearchApiKey = "AIzaSyBLq5cUwYO31kXPjCxhaELx_tNXv_TI-ec"; // Chave de API do Google JSON  com pesquisas de até 10 000 requisições por dia se for somente web é ilimitado
             const customSearchEngineId = "163bf32740a0e4962"; // ID de pesquisa personalizado
