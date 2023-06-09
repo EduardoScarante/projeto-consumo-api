@@ -4,3 +4,16 @@ html, body, input{
   font-family: 'Montserrat', sans-serif;
 }
 
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #88888800;
+  border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 6px;
+}

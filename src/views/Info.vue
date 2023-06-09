@@ -48,19 +48,29 @@
         meteorológicas confiáveis e úteis, para que possa tomar decisões
         informadas e planejar suas atividades com antecedência. Com o atTEMPt,
         você terá o poder de se preparar para qualquer condição climática.
+        <br /><br />
       </p>
     </div>
 
     <div class="logo">
       <p class="important">Informações da logo</p>
 
-      <p>Logo completa:</p>
+      <p>&nbsp &#x1f539;Logo completa:</p>
+      <img src="../imagens/Design sem nome.png" width="100%" />
 
-      <p>FavIcon</p>
+      <p>&nbsp &#x1f539;Alguns Significados:</p>
+      <img src="../imagens/AttemptTRADUCAO.png" width="70%" />
+      <img src="../imagens/at-tempTRADUCAO.png" width="70%" />
 
-      <p>Palheta de Corres</p>
+      <p>&nbsp &#x1f539;Palheta de Corres:</p>
+     
+      <img src="../imagens/013E9D.png" width="25%" />
+      <img src="../imagens/F5F7FB.png" width="25%" />
+      <img src="../imagens/010332.png" width="25%" />
+    
+      
 
-      <p>Fontes</p>
+      <p>&nbsp &#x1f539;Fontes:</p>
     </div>
 
     <div class="api">
@@ -85,5 +95,9 @@ main {
   text-align: justify;
   font-size: large;
   line-height: 1.9;
+}
+
+p {
+  font-size: large;
 }
 </style>
