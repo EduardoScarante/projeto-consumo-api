@@ -1,7 +1,7 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
 
-import icon from "./icons/love-message.png";
+import icon from "./imagens/love-message.png";
 
 import loveApi from "./components/apiLove.vue"
 
@@ -65,16 +65,6 @@ img {
   height: 60px;
   transform: rotateY(180deg); 
 }
-
-/* lottie-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: auto;
-  z-index: -1;
-
-} */
 
 nav a.router-link-exact-active {
   color: var(red);

@@ -86,11 +86,11 @@ export default {
 
   background: linear-gradient(
     360deg,
-    rgba(0, 45, 114, 1) 0%,
-    rgba(0, 85, 217, 1) 100%
+    #002d72 0%,
+    #0055d9 100%
   );
 
-  height: 94vh;
+  height: 94.6vh;
 }
 
 #imagens {
