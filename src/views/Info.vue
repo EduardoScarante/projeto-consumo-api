@@ -53,28 +53,26 @@
     </div>
 
     <div class="logo">
-      <p class="important">Informações da logo</p>
+      <p class="important">Informações da Logo</p>
 
       <p>&nbsp &#x1f539;Logo completa:</p>
-      <img src="../imagens/Design sem nome.png" width="100%" />
+      <img src="../imagens/Design sem nome.png" width="90%" />
 
       <p>&nbsp &#x1f539;Alguns Significados:</p>
       <img src="../imagens/AttemptTRADUCAO.png" width="70%" />
       <img src="../imagens/at-tempTRADUCAO.png" width="70%" />
 
       <p>&nbsp &#x1f539;Palheta de Corres:</p>
-     
+
       <img src="../imagens/013E9D.png" width="25%" />
       <img src="../imagens/F5F7FB.png" width="25%" />
       <img src="../imagens/010332.png" width="25%" />
-    
-      
-
-      <p>&nbsp &#x1f539;Fontes:</p>
     </div>
 
     <div class="api">
       <p class="important">APIs Utilizadas</p>
+      <img src="../imagens/010332.png" width="25%" />
+      <p class="text"> </p>
     </div>
   </main>
 </template>

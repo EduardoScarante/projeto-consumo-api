@@ -52,7 +52,6 @@ export default {
 
 
 <template>
-    love api :)
     <div class="modalApiLove">
         <div class="modal">
             <div class="inputUser">

@@ -3,11 +3,11 @@ import { RouterLink, RouterView } from "vue-router";
 
 import icon from "./imagens/love-message.png";
 
-import loveApi from "./components/apiLove.vue"
+import loveApi from "./components/apiLove.vue";
 
 export default {
-  components:{
-    loveApi
+  components: {
+    loveApi,
   },
   data() {
     return {
@@ -19,7 +19,7 @@ export default {
     HandleModalLoveApi() {
       this.AnuncioApiLove = !this.AnuncioApiLove;
       console.log(this.AnuncioApiLove);
-    }
+    },
   },
 };
 </script>
@@ -36,7 +36,6 @@ export default {
       <RouterLink to="/creators">
         <span class="material-symbols-outlined"> logo_dev </span>
       </RouterLink>
-      
     </nav>
 
     <RouterView />
@@ -45,9 +44,10 @@ export default {
       <img :src="icon" alt="" />
     </div>
 
-    <loveApi v-on:closeModal="HandleModalLoveApi" v-if="AnuncioApiLove"></loveApi>
-
-    
+    <loveApi
+      v-on:closeModal="HandleModalLoveApi"
+      v-if="AnuncioApiLove"
+    ></loveApi>
   </main>
 </template>
 
@@ -63,7 +63,7 @@ nav {
 
 img {
   height: 60px;
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
 nav a.router-link-exact-active {
@@ -81,6 +81,16 @@ nav a.router-link-exact-active:hover {
   padding: 20px;
 
   cursor: pointer;
+
+  animation: go-back 0.8s infinite alternate;
 }
 
+@keyframes go-back {
+  from {
+    transform: translateY(80px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 </style>
