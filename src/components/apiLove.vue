@@ -52,7 +52,6 @@ export default {
 
 
 <template>
-    love api :)
     <div class="modalApiLove">
         <div class="modal">
             <div class="inputUser">
@@ -68,10 +67,10 @@ export default {
                 </div>
             </div>
 
-            <!--  <lottie-player class="lt1" :src="lottie1" speed="1" style="width: 400px; height: auto" loop
-                        autoplay></lottie-player>
-                    <lottie-player class="lt2" :src="lottie2" speed="1" style="width: 400px; height: auto" loop
-                        autoplay></lottie-player> -->
+            <lottie-player class="lt1" :src="lottie1" speed="1" style="width: 400px; height: auto" loop
+                autoplay></lottie-player>
+            <lottie-player class="lt2" :src="lottie2" speed="1" style="width: 400px; height: auto" loop
+                autoplay></lottie-player>
         </div>
 
         <loading v-if="loading"></loading>

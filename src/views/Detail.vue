@@ -28,7 +28,7 @@ export default {
             // Obtem foto do Google usando a API de pesquisa de imagens
             const googleSearchApiKey = "AIzaSyBLq5cUwYO31kXPjCxhaELx_tNXv_TI-ec"; // Chave de API do Google JSON  com pesquisas de até 10 000 requisições por dia se for somente web é ilimitado
             const customSearchEngineId = "163bf32740a0e4962"; // ID de pesquisa personalizado
-            const googleSearchUrl = `https://www.ggoogleapis.com/customsearch/v1?key=${googleSearchApiKey}&cx=${customSearchEngineId}&q=cidade%20de%20${url}&searchType=image`;
+            const googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${googleSearchApiKey}&cx=${customSearchEngineId}&q=cidade%20de%20${url}&searchType=image`;
 
             fetch(googleSearchUrl)
                 .then((res) => res.json())
@@ -46,7 +46,7 @@ export default {
 
         },
         getClima(a) {
-            let url = `https://wweather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${a}?unitGroup=metric&key=ZNGGPXU6288M2AFT47884B8LQ&contentType=json`
+            let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${a}?unitGroup=metric&key=ZNGGPXU6288M2AFT47884B8LQ&contentType=json`
             fetch(url)
                 .then(e => e.json())
                 .then(data => {
@@ -141,7 +141,7 @@ export default {
 
             <p class="cloneBtn" @click="imgContent = false">X</p>
 
-            <p class="error">{{ imgError }}</p>
+            <p class="error" v-show="imgError">{{ imgError }}</p>
 
             <div v-for="x of imageUrl">
                 <img :src="x" alt="" />
