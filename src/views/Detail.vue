@@ -1,11 +1,11 @@
 <script>
 import climaBox from "../components/climaBox.vue";
-import loading from "../components/loadingModal.vue"
+import loadingModel from "../components/loadingModal.vue"
 
 export default {
     components: {
         climaBox,
-        loading,
+        loadingModel,
     },
     data() {
         return {
@@ -15,13 +15,14 @@ export default {
             imageUrl: [],
             clima: [],
             climaCarosel: [],
-            index: 0
+            index: 0,
+            climaError: '',
+            imgError: '',
         };
     },
     methods: {
         getImages(url) {
-            this.loading = true;
-
+            this.loading = true
             if (this.imageUrl != '') return
 
             // Obtem foto do Google usando a API de pesquisa de imagens
@@ -35,11 +36,14 @@ export default {
                     for (let x = 0; x < 10; x++) {
                         this.imageUrl.push(data.items[x].link)
                     }
+                    this.loading = false
+
                 }).catch(err => {
-                    this.imageUrl = "Acabou o dinheiro dos devs, tente novamente amanhã!"
+                    this.imgError = "Algo deu errado, tente novamente mais tarde.... :("
                     console.log("error: ", err)
+                    this.loading = false
                 })
-            this.loading = false
+
         },
         getClima(a) {
             let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${a}?unitGroup=metric&key=ZNGGPXU6288M2AFT47884B8LQ&contentType=json`
@@ -81,7 +85,12 @@ export default {
 
                         })
                     }
+
+                    this.loading = false
+
                 }).catch(err => {
+                    this.loading = false
+                    this.climaError = "Algo deu errado, tente novamente mais tarde.... :("
                     console.log("erro: ", err)
                 })
 
@@ -104,15 +113,15 @@ export default {
     },
     mounted() {
         this.getClima(this.search);
-        this.loading = false
     },
 };
 </script>
 
 <template>
     <main class="content">
-
         <p class="cidade">{{ search }}</p>
+
+        <p class="error">{{ climaError }}</p>
 
         <div class="climaBox">
             <div @click="indexMenos" class="arrow">
@@ -132,12 +141,13 @@ export default {
 
             <p class="cloneBtn" @click="imgContent = false">X</p>
 
+            <p class="error" v-show="imgError">{{ imgError }}</p>
+
             <div v-for="x of imageUrl">
                 <img :src="x" alt="" />
-                {{ erro }}
             </div>
         </div>
-        <loading v-if="loading"></loading>
+        <loadingModel v-if="loading"></loadingModel>
     </main>
 </template>
 
@@ -253,5 +263,20 @@ export default {
 
 .centerArrow:hover {
     background-color: rgb(245, 245, 245);
+}
+
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: lightcoral;
+    color: white;
+    
+    font-weight: 700;
+    border-radius: 10px;
+    width: 350px;
+    height: 100px;
 }
 </style>

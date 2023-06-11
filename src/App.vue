@@ -61,18 +61,26 @@ nav {
   align-items: center;
 }
 
+nav span{
+  margin: 20px;
+  color: black;
+  text-decoration: none;
+}
+
 img {
   height: 60px;
   transform: rotateY(180deg); 
 }
 
-nav a.router-link-exact-active {
-  color: var(red);
+/* nav > *.router-link-exact-active {
+  color: red;
+  font-weight: 700;
 }
 
-nav a.router-link-exact-active:hover {
+nav span a.router-link-exact-active:hover {
   background-color: transparent;
-}
+  color: red ;
+} */
 
 .anuncio {
   position: fixed;

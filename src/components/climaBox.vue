@@ -64,7 +64,6 @@ export default {
 
 <style scoped>
 main {
-    box-shadow: 2px 2px 1px #c5c5c5, -8px -8px 24px #fbfbfb;
     width: 350px;
     height: 500px;
 
