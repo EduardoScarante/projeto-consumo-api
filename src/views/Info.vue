@@ -58,7 +58,7 @@
         <p class="important">Informações da Logo</p>
 
         <p>&nbsp &#x1f539;Logo completa:</p>
-        <img class="logo" src="../imagens/Design sem nome.png" width="90%" />
+        <img class="logo" src="../imagens/Designsemnome.png" width="90%" />
 
         <p>&nbsp &#x1f539;Alguns Significados:</p>
         <div class="tradutor">
