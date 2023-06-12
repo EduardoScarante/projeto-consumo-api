@@ -121,7 +121,7 @@ export default {
     <main class="content">
         <p class="cidade">{{ search }}</p>
 
-        <p class="error">{{ climaError }}</p>
+        <p class="error" v-show="climaError">{{ climaError }}</p>
 
         <div class="climaBox">
             <div @click="indexMenos" class="arrow">
@@ -136,13 +136,9 @@ export default {
         </div>
 
         <p class="fotos" @click="showImg">Veja algumas fotos do local!</p>
-
         <div class="caroselImg" v-show="imgContent">
-
             <p class="cloneBtn" @click="imgContent = false">X</p>
-
             <p class="error" v-show="imgError">{{ imgError }}</p>
-
             <div v-for="x of imageUrl">
                 <img :src="x" alt="" />
             </div>

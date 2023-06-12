@@ -73,7 +73,8 @@
     <div class="api">
       <p class="important">APIs Utilizadas</p>
       <p class="text">
-        <img src="../imagens/location.png" width="25px" /> API para Localização
+        <img src="../imagens/location.png" width="25px" /> 
+        API para Localização
         das Ciades do Brasil:<br /><br />
         &nbsp https://servicodados.ibge.gov.br/api/docs/localidades
       </p>
@@ -135,6 +136,6 @@ a > img {
 
 .api{
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 </style>
