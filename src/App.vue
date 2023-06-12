@@ -53,12 +53,14 @@ export default {
 
 <style scoped>
 nav {
-  width: 95vw;
-  height: 50px;
+  width: 100vw;
+  height: 60px;
   margin: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  
+  box-shadow: 5px 5px #0055d9;
+
 }
 
 nav span{
