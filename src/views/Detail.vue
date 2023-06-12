@@ -18,6 +18,7 @@ export default {
             index: 0,
             climaError: '',
             imgError: '',
+            tempAtual: ''
         };
     },
     methods: {
@@ -63,7 +64,7 @@ export default {
                             "condição": data.days[x].conditions,
                             "descrição": data.days[x].description,
                             "precipitação": data.days[x].precip + "mm",
-                            "icon": data.days[x].icon.replaceAll("-", "")
+                            "icon": data.days[x].icon.replaceAll("-", ""),
 
                         })
                     }
@@ -81,13 +82,11 @@ export default {
                             "condição": data.days[x].conditions,
                             "descrição": data.days[x].description,
                             "precipitação": data.days[x].precip + "mm",
-                            "icon": data.days[x].icon.replaceAll("-", "")
-
+                            "icon": data.days[x].icon.replaceAll("-", ""),
                         })
                     }
-
+                    this.tempAtual = data.currentConditions.temp  + ("°")
                     this.loading = false
-
                 }).catch(err => {
                     this.loading = false
                     this.climaError = "Algo deu errado, tente novamente mais tarde.... :("
@@ -119,16 +118,16 @@ export default {
 
 <template>
     <main class="content">
-        <p class="cidade">{{ search }}</p>
+        <p class="cidade">{{ search }} - {{ tempAtual }}</p>
 
-        <p class="error" v-show="climaError">{{ climaError }}</p>
+        <p class="error" v-if="climaError">{{ climaError }}</p>
 
         <div class="climaBox">
             <div @click="indexMenos" class="arrow">
                 <div class="centerArrow">&lt</div>
             </div>
             <div v-for="x of climaCarosel">
-                <climaBox :clima="x" />
+                <climaBox :clima="x"/>
             </div>
             <div @click="indexMais" class="arrow">
                 <div class="centerArrow">></div>
@@ -143,6 +142,7 @@ export default {
                 <img :src="x" alt="" />
             </div>
         </div>
+
         <loadingModel v-if="loading"></loadingModel>
     </main>
 </template>
@@ -159,6 +159,9 @@ export default {
     font-weight: 700;
     font-size: 2rem;
     color: rgb(51, 51, 51);
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .fotos {
@@ -168,6 +171,7 @@ export default {
     color: white;
     font-weight: 700;
 
+    cursor: pointer;
 }
 
 /* IMAGENS */
@@ -195,6 +199,7 @@ export default {
     border-radius: 5px;
     width: auto;
     margin: 10px;
+
 }
 
 
@@ -207,6 +212,8 @@ export default {
     margin: auto;
 
     width: 90vw;
+
+    cursor: pointer;
 }
 
 .cloneBtn {
@@ -228,7 +235,9 @@ export default {
     font-weight: 700;
 
     transition: 0.4s;
+    
 }
+
 
 .cloneBtn:hover {
     opacity: 0.7;

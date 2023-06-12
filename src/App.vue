@@ -63,8 +63,11 @@ nav {
 
   display: flex;
   justify-content: center;
-  
-  box-shadow: 5px 5px #0055d9;
+  align-items: center;
+
+  box-shadow: 0px 3px 0px #0055d9;
+
+  z-index: 1000;
 
 }
 
