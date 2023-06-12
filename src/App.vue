@@ -63,7 +63,9 @@ nav {
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  
+  box-shadow: 5px 5px #0055d9;
+
 }
 
 nav span {
