@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="main">
     <nav>
       <RouterLink to="/">
         <span class="material-symbols-outlined"> home </span>
@@ -44,26 +44,34 @@ export default {
       <img :src="icon" alt="" />
     </div>
 
-    <loveApi
-      v-on:closeModal="HandleModalLoveApi"
-      v-if="AnuncioApiLove"
-    ></loveApi>
+    <loveApi v-on:closeModal="HandleModalLoveApi" v-if="AnuncioApiLove"></loveApi>
   </main>
 </template>
 
 <style scoped>
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+
 nav {
   width: 100vw;
-  height: 60px;
-  margin: auto;
+  height: 50px;
+
+  padding: 0px;
+  margin: 0px;
+
   display: flex;
   justify-content: center;
-  
-  box-shadow: 5px 5px #0055d9;
+  align-items: center;
+
+  box-shadow: 0px 3px 0px #0055d9;
+
+  z-index: 1000;
 
 }
 
-nav span{
+nav span {
   margin: 20px;
   color: black;
   text-decoration: none;
@@ -99,6 +107,7 @@ nav span a.router-link-exact-active:hover {
   from {
     transform: translateY(20px);
   }
+
   to {
     transform: translateY(0);
   }

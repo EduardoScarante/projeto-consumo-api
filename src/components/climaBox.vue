@@ -52,6 +52,7 @@ export default {
 
         <div class="info" v-show="showInfo">
             <h3> <b>{{ clima.descrição }}</b> </h3>
+            <br>
             <h3> Nascer do Sol: {{ clima.nascerdosol }} </h3>
             <h3> Pôr do Sol: {{ clima.pordosol }} </h3>
             <h3> Humidade: {{ clima.humidade }} </h3>
@@ -103,7 +104,7 @@ img {
 
 .info {
     position: absolute;
-    background-color: rgb(0, 0, 0, 0.4);
+    background-color: rgb(0, 0, 0, 0.7);
     height: 100%;
     width: 100%;
 
