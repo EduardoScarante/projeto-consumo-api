@@ -67,44 +67,13 @@
         </div>
 
         <p>&nbsp &#x1f539;Palheta de Corres:</p>
-        <img class="polaroid" src="../imagens/013E9D.png"/>
-        <img class="polaroid" src="../imagens/F5F7FB.png"/>
-        <img class="polaroid" src="../imagens/010332.png"/>
+        <img class="polaroid" src="../imagens/013E9D.png" />
+        <img class="polaroid" src="../imagens/F5F7FB.png" />
+        <img class="polaroid" src="../imagens/010332.png" />
       </div>
       <br>
       <br>
       <br>
-
-    <!--       <div class="api">
-        <p class="important">APIs Utilizadas</p>
-        <p class="text">
-          <img src="../imagens/location.png" width="25px" />
-          API para Localização
-          das Ciades do Brasil:<br /><br />
-          &nbsp https://servicodados.ibge.gov.br/api/docs/localidades
-        </p>
-
-        <p class="text">
-          <img src="../imagens/hot.png" width="25px" />
-          API para o Clima e Temperatura:
-          <br /><br />
-          &nbsp https://www.visualcrossing.com/weather-api
-        </p>
-
-        <p class="text">
-          <img src="../imagens/search.png" width="25px" />
-          API para Pesquisa de Imagens no Google:
-          <br /><br />
-          &nbsp https://developers.google.com/custom-search/v1/overview?hl=pt-br
-        </p>
-
-        <p class="text">
-          <img src="../imagens/love-message.png" width="25px" />
-          API "Calculadora" do Amor:
-          <br /><br />
-          &nbsp https://rapidapi.com/ajith/api/love-calculator
-              </p>
-            </div> -->
     </div>
   </div>
 </template>
@@ -148,7 +117,8 @@ p {
   font-size: large;
   padding: 20px;
 }
-.polaroid{
+
+.polaroid {
   margin-top: 20px;
   margin-bottom: 20px;
   flex-direction: row;

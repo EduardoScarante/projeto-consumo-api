@@ -110,11 +110,6 @@ img#text {
   height: 100%;
 }
 
-img#logo{
-  filter: invert(1);
-}
-
-
 input {
   height: 20px;
   width: 37%;

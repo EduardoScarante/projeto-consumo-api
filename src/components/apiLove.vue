@@ -124,11 +124,15 @@ input {
 }
 
 button {
+    margin-top: 10px;
     background-color: red;
+    color: white;
+    font-weight: 700;
     padding: 20px;
     border-radius: 10px;
     border: none;
     width: 100px;
+    cursor: pointer;
 }
 
 button:hover {
@@ -145,5 +149,14 @@ button:hover {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.res{
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 700;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(202, 0, 175);
 }
 </style>
