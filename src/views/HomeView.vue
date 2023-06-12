@@ -53,18 +53,13 @@ export default {
 </script>
 
 <template>
-  <main class="container">
+  <div class="container">
     <div id="imagens">
       <img id="logo" src="../logos/AttemptICONazul.png" />
       <img id="text" src="../logos/AttemptTEXTO(2).png" />
     </div>
 
-    <input
-      type="text"
-      v-model="filtro"
-      @keyup="handleFilter"
-      placeholder="Busque por uma cidade do Brasil..."
-    />
+    <input type="text" v-model="filtro" @keyup="handleFilter" placeholder="Busque por uma cidade do Brasil..." />
 
     <br />
 
@@ -73,44 +68,52 @@ export default {
         <search @click="handleClickDetail" :filteredCidades="x" />
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <style scoped>
 .container {
-  flex-direction: column;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 
-  background: linear-gradient(
-    360deg,
-    #002d72 0%,
-    #0055d9 100%
-  );
+  background: linear-gradient(360deg,
+      #002d72 0%,
+      #0055d9 100%);
 
-  height: 94.6vh;
+  width: 100%;
+  height: 100%;
+
+  padding-top: 100px;
+
 }
 
 #imagens {
-  flex-direction: column;
   display: flex;
+  flex-direction: row;
   align-items: center;
   text-align: center;
+  justify-content: center;
 
-  height: 520px;
+  width: 100%;
+  height: 25%;
+
+  padding-bottom: 100px;
+
 }
 
-img#logo {
-  width: 18%;
-  min-width: 200px;
-}
-
+img#logo,
 img#text {
-  width: 42%;
-  min-width: 400px;
+  width: auto;
+  height: 100%;
 }
+
+img#logo{
+  filter: invert(1);
+}
+
 
 input {
   height: 20px;
