@@ -82,12 +82,12 @@ nav a.router-link-exact-active:hover {
 
   cursor: pointer;
 
-  animation: go-back 0.8s infinite alternate;
+  animation: go-back 0.5s infinite alternate;
 }
 
 @keyframes go-back {
   from {
-    transform: translateY(80px);
+    transform: translateY(20px);
   }
   to {
     transform: translateY(0);

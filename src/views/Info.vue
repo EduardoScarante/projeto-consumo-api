@@ -56,23 +56,48 @@
       <p class="important">Informações da Logo</p>
 
       <p>&nbsp &#x1f539;Logo completa:</p>
-      <img src="../imagens/Design sem nome.png" width="90%" />
+      <img class="logo" src="../imagens/Design sem nome.png" width="90%" />
 
       <p>&nbsp &#x1f539;Alguns Significados:</p>
-      <img src="../imagens/AttemptTRADUCAO.png" width="70%" />
-      <img src="../imagens/at-tempTRADUCAO.png" width="70%" />
+      <a href="https://translate.google.com.br/?hl=pt-BR">
+        <img src="../imagens/AttemptTRADUCAO.png" width="70%" />
+        <img src="../imagens/at-tempTRADUCAO.png" width="70%" />
+      </a>
 
       <p>&nbsp &#x1f539;Palheta de Corres:</p>
-
-      <img src="../imagens/013E9D.png" width="25%" />
-      <img src="../imagens/F5F7FB.png" width="25%" />
-      <img src="../imagens/010332.png" width="25%" />
+      <img class="polaroid" src="../imagens/013E9D.png" width="25%" />
+      <img class="polaroid" src="../imagens/F5F7FB.png" width="25%" />
+      <img class="polaroid" src="../imagens/010332.png" width="25%" />
     </div>
 
     <div class="api">
       <p class="important">APIs Utilizadas</p>
-      <img src="../imagens/010332.png" width="25%" />
-      <p class="text"> </p>
+      <p class="text">
+        <img src="../imagens/location.png" width="25px" /> API para Localização
+        das Ciades do Brasil:<br /><br />
+        &nbsp https://servicodados.ibge.gov.br/api/docs/localidades
+      </p>
+
+      <p class="text">
+        <img src="../imagens/hot.png" width="25px" />
+        API para o Clima e Temperatura:
+        <br /><br />
+        &nbsp https://www.visualcrossing.com/weather-api
+      </p>
+
+      <p class="text">
+        <img src="../imagens/search.png" width="25px" />
+        API para Pesquisa de Imagens no Google:
+        <br /><br />
+        &nbsp https://developers.google.com/custom-search/v1/overview?hl=pt-br
+      </p>
+
+      <p class="text">
+        <img src="../imagens/love-message.png" width="25px" />
+        API "Calculadora" do Amor:
+        <br /><br />
+        &nbsp https://rapidapi.com/ajith/api/love-calculator
+      </p>
     </div>
   </main>
 </template>
@@ -97,5 +122,19 @@ main {
 
 p {
   font-size: large;
+}
+
+.polaroid {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+a > img {
+  margin-left: 10%;
+}
+
+.api{
+  display: flex;
+  align-items: center;
 }
 </style>
